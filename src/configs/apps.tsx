@@ -23,23 +23,25 @@ const apps: AppsData[] = [
     img: "img/icons/bear.png",
     content: <Bear />
   },
-  {
-    id: "safari",
-    title: "Safari",
-    desktop: true,
-    show: false,
-    width: 1024,
-    minWidth: 375,
-    minHeight: 200,
-    img: "img/icons/safari.png",
-    content: <Safari />
-  },
+  // {
+  //   id: "safari",
+  //   title: "Safari",
+  //   desktop: true,
+  //   show: false,
+  //   width: 1024,
+  //   minWidth: 375,
+  //   minHeight: 200,
+  //   img: "img/icons/safari.png",
+  //   content: <Safari />
+  // },
   {
     id: "vscode",
-    title: "VSCode",
+    title: "P5.js",
     desktop: true,
-    show: false,
-    img: "img/icons/vscode.png",
+    show: true,
+    width: 400,
+    height: 465,
+    img: "img/icons/p5js.svg",
     content: <VSCode />
   },
   {
@@ -64,14 +66,14 @@ const apps: AppsData[] = [
     title: "Mail",
     desktop: false,
     img: "img/icons/mail.png",
-    link: "mailto:renovamenzxh@gmail.com"
+    link: "mailto:mondrain@gmail.com"
   },
   {
     id: "github",
     title: "Github",
     desktop: false,
     img: "img/icons/github.png",
-    link: "https://github.com/Renovamen/playground-macos"
+    link: "https://github.com/Mondrain/"
   }
 ];
 

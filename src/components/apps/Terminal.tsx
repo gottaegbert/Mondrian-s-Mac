@@ -1,22 +1,17 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { Component } from "react";
 import terminal from "../../configs/terminal";
 import { TerminalData } from "../../types";
 
-const emojis = [
-  "\\(o_o)/",
-  "(˚Δ˚)b",
-  "(^-^*)",
-  "(╯‵□′)╯",
-  "\\(°ˊДˋ°)/",
-  "╰(‵□′)╯"
-];
+const emojis = ["\\(o_o)/", "(˚Δ˚)b", "(^-^*)"];
 
 const getEmoji = () => {
   return emojis[Math.floor(Math.random() * emojis.length)];
 };
 
-const characters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789富强民主文明和谐自由平等公正法治爱国敬业诚信友善";
+const characters = "MondrainAbstract蒙德里安抽象构成";
+// "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789富强民主文明和谐自由平等公正法治爱国敬业诚信友善";
 
 interface HowDareProps {
   setRMRF: (value: boolean) => void;
@@ -24,17 +19,18 @@ interface HowDareProps {
 
 interface TerminalState {
   rmrf: boolean;
+  rmrfa: boolean;
   content: JSX.Element[];
 }
 
 // rain animation is adopted from: https://codepen.io/P3R0/pen/MwgoKv
-//rm -rf my-dream.cpp
-class HowDare extends Component<HowDareProps> {
+//rm -rf my-dream.cpp To avoid war
+class HowDareC extends Component<HowDareProps> {
   private $canvas = null as HTMLCanvasElement | null;
   private ctx = null as CanvasRenderingContext2D | null;
   private intervalId = null as any;
   private emoji = getEmoji();
-  private font_size = 12;
+  private font_size = 20;
   private drops = [] as number[];
 
   componentDidMount() {
@@ -62,10 +58,10 @@ class HowDare extends Component<HowDareProps> {
     this.ctx = this.ctx as CanvasRenderingContext2D;
     this.$canvas = this.$canvas as HTMLCanvasElement;
 
-    this.ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    this.ctx.fillStyle = "rgba(1, 1, 1, 0.05)";
     this.ctx.fillRect(0, 0, this.$canvas.width, this.$canvas.height);
 
-    this.ctx.fillStyle = "#2e9244";
+    this.ctx.fillStyle = "#0d9fe2";
     this.ctx.font = `${this.font_size}px arial`;
 
     for (let i = 0; i < this.drops.length; i++) {
@@ -98,9 +94,19 @@ class HowDare extends Component<HowDareProps> {
         onClick={() => this.props.setRMRF(false)}
       >
         <canvas id="how-dare"></canvas>
-        <div className="font-avenir absolute text-center h-28 mx-auto -mt-20 bottom-0 left-0 right-0 top-1/2">
+        <div className="font-avenir absolute  h-28 mx-auto -mt-20 bottom-0 left-10 right-0 top-1/4">
           <div className="text-4xl">{this.emoji}</div>
-          <div className="text-3xl mt-4">HOW DARE YOU!</div>
+          <div className="text-3xl mt-4"> You are right!</div>
+          <div className="text-3xl mt-4"> The reason:</div>
+          <div className="text-2xl">
+            {" "}
+            In September 1940, London suffered a German blitzkrieg. One night
+            Mondrian was sitting in his bedroom when a bomb nearly killed him,
+            thanks to the blackout blinds being closed and he escaped the
+            shattered glass. After weeks of indiscriminate bombing, he
+            recklessly tried to leave London and went first to Liverpool, where
+            he boarded a ship for New York.
+          </div>
           <div className="mt-4">Click to go back</div>
         </div>
       </div>
@@ -108,6 +114,90 @@ class HowDare extends Component<HowDareProps> {
   }
 }
 
+class HowDareA extends Component<HowDareProps> {
+  private $canvas = null as HTMLCanvasElement | null;
+  private ctx = null as CanvasRenderingContext2D | null;
+  private intervalId = null as any;
+  private emoji = getEmoji();
+  private font_size = 20;
+  private drops = [] as number[];
+
+  componentDidMount() {
+    const $container = document.querySelector(
+      "#how-dare-container"
+    ) as HTMLElement;
+    this.$canvas = document.querySelector("#how-dare") as HTMLCanvasElement;
+    this.$canvas.height = $container.offsetHeight;
+    this.$canvas.width = $container.offsetWidth;
+    this.ctx = this.$canvas.getContext("2d");
+
+    const columns = this.$canvas.width / this.font_size;
+    this.drops = [];
+    // x: x coordinate, 1: y-coordinate
+    for (let x = 0; x < columns; x++) this.drops[x] = 1;
+
+    this.intervalId = setInterval(this.rain.bind(this), 33);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
+  rain() {
+    this.ctx = this.ctx as CanvasRenderingContext2D;
+    this.$canvas = this.$canvas as HTMLCanvasElement;
+
+    this.ctx.fillStyle = "rgba(1, 1, 1, 0.05)";
+    this.ctx.fillRect(0, 0, this.$canvas.width, this.$canvas.height);
+
+    this.ctx.fillStyle = "#e20d0d";
+    this.ctx.font = `${this.font_size}px arial`;
+
+    for (let i = 0; i < this.drops.length; i++) {
+      const text = characters[Math.floor(Math.random() * characters.length)];
+
+      this.ctx.fillText(
+        text,
+        i * this.font_size,
+        this.drops[i] * this.font_size
+      );
+
+      // sends the drop back to the top randomly after it has crossed the screen
+      // adding randomness to the reset to make the drops scattered on the Y axis
+      if (
+        this.drops[i] * this.font_size > this.$canvas.height &&
+        Math.random() > 0.975
+      )
+        this.drops[i] = 0;
+
+      // increments Y coordinate
+      this.drops[i]++;
+    }
+  }
+
+  render() {
+    return (
+      <div
+        id="how-dare-container"
+        className="fixed w-full h-full bg-black text-white"
+        onClick={() => this.props.setRMRF(false)}
+      >
+        <canvas id="how-dare"></canvas>
+        <div className="font-avenir absolute  h-28 mx-auto -mt-20 bottom-0 left-10 right-0 top-1/4">
+          <div className="text-4xl">{this.emoji}</div>
+          <div className="text-3xl mt-4"> You are Wrong!</div>
+          <div className="text-3xl mt-4">
+            {" "}
+            Please cd to the directory of "4_Aspects_of_Mondrain_In_London" to
+            guess some question and re-select
+          </div>
+
+          <div className="mt-4">Click to go back</div>
+        </div>
+      </div>
+    );
+  }
+}
 export default class Terminal extends Component<{}, TerminalState> {
   private history = [] as string[];
   private curHistory = 0;
@@ -122,7 +212,8 @@ export default class Terminal extends Component<{}, TerminalState> {
     super(props);
     this.state = {
       content: [],
-      rmrf: false
+      rmrf: false,
+      rmrfa: false
     };
     this.commands = {
       cd: this.cd,
@@ -208,7 +299,7 @@ export default class Terminal extends Component<{}, TerminalState> {
     }
     this.generateResultRow(
       this.curInputTimes,
-      <div className="grid grid-cols-4 w-full">{result}</div>
+      <div className="grid grid-cols-1 w-full">{result}</div>
     );
   };
 
@@ -257,14 +348,18 @@ export default class Terminal extends Component<{}, TerminalState> {
           <span className="text-red-400">help</span> - Display this help menu
         </li>
         <li>
-          <span className="text-red-400">rm -rf /</span> - :)
-        </li>
-        <li>
           press <span className="text-red-400">up arrow / down arrow</span> -
           Select history commands
         </li>
         <li>
           press <span className="text-red-400">tab</span> - Auto complete
+        </li>
+        <li>
+          key <span className="text-red-400">words</span> - Choose words
+        </li>
+        <li>
+          <span className="text-red-400">A / B / C</span> and hit enter to
+          answer the final question - :)
         </li>
       </ul>
     );
@@ -315,7 +410,9 @@ export default class Terminal extends Component<{}, TerminalState> {
       // we can't edit the past input
       $input.setAttribute("readonly", "true");
 
-      if (input_text.substr(0, 6) === "rm -rf") this.setState({ rmrf: true });
+      if (input_text.substr(0, 1) === "C") this.setState({ rmrf: true });
+      if (input_text.substr(0, 1) === "A") this.setState({ rmrfa: true });
+      if (input_text.substr(0, 1) === "B") this.setState({ rmrfa: true });
       else if (cmd && Object.keys(this.commands).includes(cmd)) {
         this.commands[cmd](args);
       } else {
@@ -407,15 +504,51 @@ export default class Terminal extends Component<{}, TerminalState> {
         onClick={() => this.focusOnInput(this.curInputTimes)}
       >
         {this.state.rmrf && (
-          <HowDare
+          <HowDareC
             setRMRF={(value: boolean) => this.setState({ rmrf: value })}
           />
         )}
+        {this.state.rmrfa && (
+          <HowDareA
+            setRMRF={(value: boolean) => this.setState({ rmrfa: value })}
+          />
+        )}
         <div className="w-full h-max pt-2 px-1.5 ">
-          <span className="text-green-300">ヽ(ˋ▽ˊ)ノ</span>: Hey, you found the
-          terminal! Type `help` to get started.
+          Hey, Welcome my Situation puzzle Game! Type{" "}
+          <span className="text-red-500">`help`</span> to get started.
+          //////////////////////////////////////////////////////////////////////// <br/> <br/>
+          <span className="text-blue-500">
+            Soup base:  <br/>In the 1930s, Mondrian changed his art style for the
+            fifth time. In 1938, Mondrian went to London at the invitation of
+            his friend Nicholson.  <br/>In just two years, in September 1940, Mondrian
+            desperately wanted to leave London.  <br/>On October 3, 1940, when he
+            wrote back to a friend, he said: "In London, art is too difficult."
+          </span>
+           <br/> <br/>
+          You will receive some YesorNo answer to specific questions of
+          Mondrain's life on character/friends/work/environment to answer one final
+          final question:
+          <br/>
+          <span className="text-2xl mt-4 text-red-500" >
+            Why Mondrain want to leave London in 1938.
+          </span>
+           <br/>
+          <span className="text-yellow-300">
+            1.Please enter "cd 4_Aspects_of_Mondrain_In_London" to see the
+            question
+            <br/>
+            2.Then enter "cd personal" to see the specific question
+            <br />
+            3.Now you can list all question in the section by enter "ls"
+            <br />
+            4.And use "cat" to access the answer of the question, <br />like "cat 1.Is_Mondrian_cold_personality?"
+            <br />
+            5.Now you can repeat the process to read all question and use your deduction to come up the final answer!
+            <br />
+            6.You can use cd .. to return to previous directory
+          </span>
         </div>
-        <div id="terminal-content" className="mt-2 px-1.5 pb-2">
+        <div id="terminal-content" className="mt-2 px-1.5 pb-2 text-blue-300">
           {this.state.content}
         </div>
       </div>
