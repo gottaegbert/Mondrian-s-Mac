@@ -58,7 +58,7 @@ class HowDareC extends Component<HowDareProps> {
     this.ctx = this.ctx as CanvasRenderingContext2D;
     this.$canvas = this.$canvas as HTMLCanvasElement;
 
-    this.ctx.fillStyle = "rgba(1, 1, 1, 0.05)";
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     this.ctx.fillRect(0, 0, this.$canvas.width, this.$canvas.height);
 
     this.ctx.fillStyle = "#0d9fe2";
@@ -500,7 +500,7 @@ export default class Terminal extends Component<{}, TerminalState> {
   render() {
     return (
       <div
-        className="terminal font-terminal relative nightwind-prevent nightwind-prevent-block w-full h-full bg-gray-800 bg-opacity-90 text-white text-sm font-normal overflow-y-scroll"
+        className="terminal font-terminal relative nightwind-prevent nightwind-prevent-block w-full h-full bg-gray-800 bg-opacity-80 text-white text-sm font-normal overflow-y-scroll"
         onClick={() => this.focusOnInput(this.curInputTimes)}
       >
         {this.state.rmrf && (
@@ -530,7 +530,7 @@ export default class Terminal extends Component<{}, TerminalState> {
           final question:
           <br/>
           <span className="text-2xl mt-4 text-red-500" >
-            Why Mondrain want to leave London in 1938.
+            Why Mondrain want to leave London in 1940.
           </span>
            <br/>
           <span className="text-yellow-300">

@@ -76,7 +76,7 @@ const terminal: TerminalData[] = [
           },
           {
             id: "Doesn't Mondrian like the studio here?",
-            title: "Doesn't_Mondrian_like_the_studio_here?",
+            title: "2.Doesn't_Mondrian_like_the_studio_here?",
             type: "file",
             content:
               "NO! Mondrian painted the brown walls and minimalist furniture in bright white with a smattering of red. The furniture was bought from a second-hand shop and remodelled, the latticework creeping up the walls and turning the plain dull rental room into an imaginative drawing room."
