@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "//www.egbert.tech/Mondrian-s-Mac/static/css/main.7a4f7596.chunk.css",
-    "main.js": "//www.egbert.tech/Mondrian-s-Mac/static/js/main.d0324e3c.chunk.js",
-    "main.js.map": "//www.egbert.tech/Mondrian-s-Mac/static/js/main.d0324e3c.chunk.js.map",
-    "runtime-main.js": "//www.egbert.tech/Mondrian-s-Mac/static/js/runtime-main.bc097b4c.js",
-    "runtime-main.js.map": "//www.egbert.tech/Mondrian-s-Mac/static/js/runtime-main.bc097b4c.js.map",
-    "static/css/2.76a0d443.chunk.css": "//www.egbert.tech/Mondrian-s-Mac/static/css/2.76a0d443.chunk.css",
-    "static/js/2.2ec008a5.chunk.js": "//www.egbert.tech/Mondrian-s-Mac/static/js/2.2ec008a5.chunk.js",
-    "static/js/2.2ec008a5.chunk.js.map": "//www.egbert.tech/Mondrian-s-Mac/static/js/2.2ec008a5.chunk.js.map",
-    "index.html": "//www.egbert.tech/Mondrian-s-Mac/index.html",
-    "static/css/2.76a0d443.chunk.css.map": "//www.egbert.tech/Mondrian-s-Mac/static/css/2.76a0d443.chunk.css.map",
-    "static/css/main.7a4f7596.chunk.css.map": "//www.egbert.tech/Mondrian-s-Mac/static/css/main.7a4f7596.chunk.css.map",
-    "static/js/2.2ec008a5.chunk.js.LICENSE.txt": "//www.egbert.tech/Mondrian-s-Mac/static/js/2.2ec008a5.chunk.js.LICENSE.txt",
-    "static/media/index.css": "//www.egbert.tech/Mondrian-s-Mac/static/media/AvenirNextLTPro-Regular.a6f907b6.woff"
+    "main.css": "/Mondrian-s-Mac/static/css/main.5f51a575.chunk.css",
+    "main.js": "/Mondrian-s-Mac/static/js/main.061b2da6.chunk.js",
+    "main.js.map": "/Mondrian-s-Mac/static/js/main.061b2da6.chunk.js.map",
+    "runtime-main.js": "/Mondrian-s-Mac/static/js/runtime-main.deb97688.js",
+    "runtime-main.js.map": "/Mondrian-s-Mac/static/js/runtime-main.deb97688.js.map",
+    "static/css/2.8a61496e.chunk.css": "/Mondrian-s-Mac/static/css/2.8a61496e.chunk.css",
+    "static/js/2.ca8ac9be.chunk.js": "/Mondrian-s-Mac/static/js/2.ca8ac9be.chunk.js",
+    "static/js/2.ca8ac9be.chunk.js.map": "/Mondrian-s-Mac/static/js/2.ca8ac9be.chunk.js.map",
+    "index.html": "/Mondrian-s-Mac/index.html",
+    "static/css/2.8a61496e.chunk.css.map": "/Mondrian-s-Mac/static/css/2.8a61496e.chunk.css.map",
+    "static/css/main.5f51a575.chunk.css.map": "/Mondrian-s-Mac/static/css/main.5f51a575.chunk.css.map",
+    "static/js/2.ca8ac9be.chunk.js.LICENSE.txt": "/Mondrian-s-Mac/static/js/2.ca8ac9be.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Mondrian-s-Mac/static/media/AvenirNextLTPro-Regular.a6f907b6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.bc097b4c.js",
-    "static/css/2.76a0d443.chunk.css",
-    "static/js/2.2ec008a5.chunk.js",
-    "static/css/main.7a4f7596.chunk.css",
-    "static/js/main.d0324e3c.chunk.js"
+    "static/js/runtime-main.deb97688.js",
+    "static/css/2.8a61496e.chunk.css",
+    "static/js/2.ca8ac9be.chunk.js",
+    "static/css/main.5f51a575.chunk.css",
+    "static/js/main.061b2da6.chunk.js"
   ]
 }
