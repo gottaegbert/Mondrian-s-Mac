@@ -3,7 +3,8 @@ import Terminal from "../components/apps/Terminal";
 // import Safari from "../components/apps/Safari";
 import Bear from "../components/apps/Bear";
 import VSCode from "../components/apps/VSCode";
-
+import IMessage from "../components/apps/IMessage";
+import Finder from "../components/apps/Finder";
 import { AppsData } from "../types";
 
 const apps: AppsData[] = [
@@ -15,15 +16,21 @@ const apps: AppsData[] = [
   // },
   {
     id: "finder",
-    title: "finder",
-    desktop: false,
-    img: "img/icons/Finder.png"
+    title: "Finder",
+    desktop: true,
+    img: "img/icons/Finder.png",
+    width: 724,
+    height: 482,
+    content: <Finder />
   },
   {
-    id: "imessage",
-    title: "imessage",
-    desktop: false,
-    img: "img/icons/imessage.png"
+    id: "Messages",
+    title: "Messages",
+    desktop: true,
+    img: "img/icons/imessage.png",
+    width: 724,
+    height: 482,
+    content: <IMessage />
   },
   {
     id: "facetime",
